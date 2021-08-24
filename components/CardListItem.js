@@ -1,39 +1,78 @@
-import { Col, Row, Image, Card } from "react-bootstrap";
+import {
+  Col,
+  Row,
+  Image,
+  Card,
+  Popover,
+  OverlayTrigger,
+} from "react-bootstrap";
+import Link from "next/link";
+import { urlFor } from "lib/api";
+import LinesEllipsis from "react-lines-ellipsis";
 
-const CardListItem = () => {
+const CardListItem = ({
+  title,
+  subtitle,
+  timeago,
+  fulltime,
+  image,
+  author,
+  link,
+}) => {
   return (
-    <Card className={`fj-card fj-card-list`}>
+    <Card className={`iz-card iz-card-list`}>
       <div className="card-body-wrapper">
         <Row>
           <Col md="5">
             <div className="view overlay">
-              <Card.Img
-                src="https://cms-assets.tutsplus.com/uploads/users/16/courses/523/preview_image/nodejs-from-scratch-400x277.jpg"
-                alt="Card image cap"
-              />
+              {link && (
+                <Link {...link}>
+                  <Card.Img
+                    src={urlFor(image).height(300).url()}
+                    height={200}
+                    draggable="false"
+                    className="card-img clickable"
+                    alt="Card image cap"
+                  />
+                </Link>
+              )}
             </div>
           </Col>
           <Col md="7" className="d-flex justify-content-end flex-column">
             <Card.Body>
               <Card.Title className="card-main-title">
-                Placeholder Title
+                {link && (
+                  <Link {...link}>
+                    <LinesEllipsis text={title} maxLine="1" />
+                  </Link>
+                )}
               </Card.Title>
-              <Card.Text>Placehodler Subtitle</Card.Text>
+              <Card.Text>
+                <LinesEllipsis text={subtitle} maxLine="3" />
+              </Card.Text>
             </Card.Body>
 
             <Card.Header className="d-flex flex-row">
               <Image
-                src={"https://via.placeholder.com/150"}
+                src={author.avatar}
                 className="rounded-circle"
                 height="50px"
                 width="50px"
                 alt="avatar"
+                draggable="false"
               />
               <div className="ms-3">
                 <Card.Title className="font-weight-bold mb-1">
-                  Placeholder Author
+                  {author.name}
                 </Card.Title>
-                <Card.Text className="card-date">Placeholder Date</Card.Text>
+                <OverlayTrigger
+                  placement="bottom"
+                  overlay={
+                    <Popover className="popover-date">{fulltime}</Popover>
+                  }
+                >
+                  <Card.Text className="card-date">{timeago}</Card.Text>
+                </OverlayTrigger>
               </div>
             </Card.Header>
           </Col>

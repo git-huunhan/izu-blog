@@ -1,10 +1,15 @@
-html, body {
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700;900&display=swap");
+
+$popover-date-color: #5e5e5e;
+
+html,
+body {
   height: 100%;
   font-family: Nunito, sans-serif;
   font-style: normal;
   font-size: 14px;
   font-weight: 300;
-  background-color: #E4E7EC;
+  background-color: #ffffff;
 }
 
 .clickable {
@@ -20,14 +25,14 @@ html, body {
 }
 
 .page-wrapper {
-  padding-top: 20px;;
+  padding-top: 20px;
 }
 
-
-.card.fj-card {
+.card.iz-card {
   // padding-top: 50px;
   border: none;
   background-color: #ffffff00;
+  margin-bottom: 20px;
   .card-body-wrapper {
     background-color: #fff;
     border-radius: 20px;
@@ -44,6 +49,14 @@ html, body {
 
   .card-img {
     border-radius: 20px;
+    object-fit: cover;
+    object-position: center;
+    transition: 0.3s;
+    transform: scale(1);
+
+    &:hover {
+      transform: scale(1.04);
+    }
   }
 
   .card-body {
@@ -57,10 +70,29 @@ html, body {
 
   .card-date {
     font-size: 13px;
+    color: #63696e;
   }
 
   .card-main-title {
     font-size: 22px;
+    height: 26px;
+    a {
+      color: #000;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .LinesEllipsis:hover {
+      cursor: pointer;
+      color: #7a99ff;
+      transition: all 0.3s;
+    }
+  }
+
+  .card-subtitle {
+    font-size: 16px;
+    color: #63696e;
+    height: 60px;
   }
 
   .card-header {
@@ -69,18 +101,18 @@ html, body {
     img {
       --size: 45px;
       background-color: #fff;
-      border: 1px solid #464646;
       border-radius: 50%;
       // box-shadow: 2px 5px 25px rgba(0, 0, 0, .15);
       // left: 10px;
       // position: absolute;
       top: calc(-1 * (var(--size) / 2));
       width: var(--size);
-      height: var(--size);;
+      height: var(--size);
+      object-fit: cover;
     }
   }
 
-  &.fj-card-list {
+  &.iz-card-list {
     .card-body-wrapper {
       min-height: 180px;
       // position: relative;
@@ -96,7 +128,7 @@ html, body {
   }
 }
 
-.card.fj-card.placeholder {
+.card.iz-card.placeholder {
   color: transparent;
   .image-placeholder {
     height: 200px;
@@ -104,7 +136,9 @@ html, body {
     background-color: #bebebe;
   }
 
-  .card-title, .card-text, .card-date {
+  .card-title,
+  .card-text,
+  .card-date {
     background-color: #bebebe;
   }
 }
@@ -114,17 +148,22 @@ html, body {
 }
 
 // HEADER STARTS
-.fj-navbar.fj-nav-base {
+.iz-navbar.iz-nav-base {
   width: 100%;
   padding: 20px 0px;
 
-  .fj-navbar {
+  .iz-navbar {
     &-brand {
       color: black;
       font-size: 24px;
       text-transform: uppercase;
       letter-spacing: 1px;
       font-weight: bold;
+
+      a {
+        color: black;
+        text-decoration: none;
+      }
     }
 
     &-item {
@@ -134,23 +173,25 @@ html, body {
 
     &-link {
       color: black;
+      font-weight: 500;
       letter-spacing: 0.8px;
       font-size: 18px;
       text-transform: uppercase;
+      text-decoration: none;
 
       &.active {
-      color: #dba919;
+        color: #7a99ff;
       }
 
-      &:hover, &:focus {
-        color: #dba919;
+      &:hover,
+      &:focus {
+        color: #7a99ff;
       }
     }
   }
 
-  .fj-dropdown-menu {
-
-    .fj-dropdown-item {
+  .iz-dropdown-menu {
+    .iz-dropdown-item {
       color: #4e4e4e;
 
       &.active {
@@ -158,7 +199,7 @@ html, body {
       }
     }
 
-    .fj-dropdown-toggle {
+    .iz-dropdown-toggle {
       color: white;
       margin-left: 10px;
       margin-right: 10px;
@@ -166,14 +207,13 @@ html, body {
   }
 }
 
-.fj-navbar.fj-nav-base.fj-nav-default {
+.iz-navbar.iz-nav-base.iz-nav-default {
   padding: 30px;
   background-color: black !important;
 }
 
-
 .bg-transparent.menu-open {
-  background-color: #2C3E50 !important;
+  background-color: #2c3e50 !important;
 }
 
 .bg-transparent.menu-close {
@@ -193,24 +233,88 @@ html, body {
 
 .hljs {
   padding: 20px 20px 10px;
-  border-radius: 10px
+  border-radius: 10px;
 }
 
-.code-filename, .image-alt {
+.image-alt {
   opacity: 0.6;
   margin-top: 10px;
   font-style: italic;
   font-size: 14px;
 }
 
+.code-filename {
+  color: #d3d3d3;
+  font-style: italic;
+  font-size: 16px;
+  padding: 10px 15px 5px 15px;
+  border-bottom: 1px solid #686868;
+}
+
+.container-code {
+  background-color: #0d1117;
+  border-radius: 10px;
+  width: 100%;
+  display: inline-block;
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 10px;
+    left: -1000px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #ffffff;
+    border-radius: 50px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #c0c0c0;
+  }
+}
+
+.code-pre {
+  margin: 0;
+  height: 300px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  border-radius: 10px;
+}
+
+.ljoDDa .clipWrapper button {
+  margin: 10px 10px;
+  background: #313131 !important;
+  color: #fff;
+  font-size: 15px;
+  border-radius: 6px;
+  display: none;
+  border: 1px solid #bebebe !important;
+}
+
 .blog-image {
   margin-bottom: 10px;
   text-align: center;
+
+  &-left {
+    float: left;
+    margin-right: 30px;
+  }
+
+  &-right {
+    float: right;
+    margin-left: 30px;
+  }
 }
 .image-alt {
   margin-top: 3px;
 }
-
 
 .blog-detail-page {
   font-size: 19px;
@@ -231,9 +335,8 @@ html, body {
   }
 }
 
-
 .dark {
-  .card.fj-card {
+  .card.iz-card {
     background-color: #232129;
     transition: color 0s ease-out 0s, background 0.2s ease-out 0s;
     .card-body-wrapper {
@@ -246,11 +349,11 @@ html, body {
     }
   }
 
-  .fj-navbar.fj-nav-base {
+  .iz-navbar.iz-nav-base {
     width: 100%;
     padding: 20px 0px;
 
-    .fj-navbar {
+    .iz-navbar {
       &-brand {
         color: #ffffff;
       }
@@ -275,7 +378,8 @@ html, body {
       background-color: black;
     }
 
-    &-x, &-check {
+    &-x,
+    &-check {
       right: 8px;
       width: 15px;
       height: 15px;
@@ -296,4 +400,32 @@ html, body {
   a {
     color: #63696e;
   }
+}
+
+.popover-date {
+  color: #fff;
+  background-color: $popover-date-color;
+  padding: 5px 10px 5px 10px;
+  border: none;
+  border-radius: 8px;
+  .popover-arrow {
+    transform: translate(97px, 1px) !important;
+  }
+
+  .popover-arrow::before,
+  .bs-popover-bottom > .popover-arrow::before {
+    border-bottom-color: $popover-date-color;
+  }
+
+  .popover-arrow::after,
+  .bs-popover-bottom > .popover-arrow::after {
+    border-bottom-color: transparent;
+  }
+}
+
+.img-fluid {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
 }

@@ -11,11 +11,9 @@ export default function PageLayout({ children, className }) {
 
       <footer className="page-footer">
         <div>
-          <a href="#">courses</a>
-          {" | "}
-          <a href="#">github</a>
-          {" | "}
-          <a href="#">facebook</a>
+          <a href="#" style={{ textDecoration: "none" }}>
+            Izu Blog with ❤️, 2021
+          </a>
         </div>
       </footer>
     </Container>
