@@ -10,6 +10,7 @@ body {
   font-size: 14px;
   font-weight: 300;
   background-color: #ffffff;
+  overflow-y: overlay;
 }
 
 .clickable {
@@ -36,11 +37,18 @@ body {
   .card-body-wrapper {
     background-color: #fff;
     border-radius: 20px;
-    box-shadow: 2px 5px 25px rgba(0, 0, 0, 0.055);
+
     min-height: 280px;
     position: relative;
     z-index: 2;
     padding: 15px;
+    transition: all 0.3s;
+
+    &:hover {
+      box-shadow: 2px 5px 25px rgba(0, 0, 0, 0.116);
+      transform: scale(1.04);
+      
+    }
   }
 
   .card-header {
@@ -53,10 +61,6 @@ body {
     object-position: center;
     transition: 0.3s;
     transform: scale(1);
-
-    &:hover {
-      transform: scale(1.04);
-    }
   }
 
   .card-body {
@@ -282,7 +286,7 @@ body {
 
 .code-pre {
   margin: 0;
-  height: 300px;
+  max-height: 350px;
   white-space: pre-wrap;
   word-break: break-word;
   border-radius: 10px;

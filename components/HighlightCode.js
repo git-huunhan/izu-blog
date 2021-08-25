@@ -1,5 +1,5 @@
-import highlight from "highlight.js";
 import { useRef, useEffect } from "react";
+import highlight from "highlight.js";
 
 const HighlightCode = ({ children, language }) => {
   const code = useRef();

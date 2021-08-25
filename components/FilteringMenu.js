@@ -1,12 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const LIST_VIEW_ICONS = ["list", "border-all"];
+const DATE_FILTERING_ICONS = ["sort-numeric-down", "sort-numeric-up"];
 
 const FilteringMenu = ({ onChange, filter }) => {
   return (
     <div className="filtering-menu mb-2">
       <FontAwesomeIcon
-        color="#99A9CC"
+        color="#000"
         fixedWidth
         className="clickable"
         size="lg"
@@ -14,6 +15,15 @@ const FilteringMenu = ({ onChange, filter }) => {
         onClick={() => {
           onChange("view", { list: +!filter.view.list });
         }}
+      />
+
+      <FontAwesomeIcon
+        color="#000"
+        fixedWidth
+        className="clickable"
+        size="lg"
+        icon={DATE_FILTERING_ICONS[filter.date.asc]}
+        onClick={() => onChange("date", { asc: +!filter.date.asc })}
       />
     </div>
   );

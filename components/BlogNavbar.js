@@ -12,9 +12,14 @@ const BlogNavbar = () => {
         <Nav className="ms-auto">
           <Nav.Link
             as={() => (
-              <Link href="/">
-                <a className="iz-navbar-item iz-navbar-link">Home</a>
-              </Link>
+              <a
+                href="https://github.com/git-huunhan"
+                target="_blank"
+                rel="noreferrer"
+                className="iz-navbar-item iz-navbar-link"
+              >
+                About Me
+              </a>
             )}
           />
         </Nav>

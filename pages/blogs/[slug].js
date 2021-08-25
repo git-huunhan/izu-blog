@@ -1,6 +1,7 @@
-import PageLayout from "components/PageLayout";
 import { Row, Col } from "react-bootstrap";
 import { getAllBlogs, getBlogBySlug, urlFor } from "lib/api";
+
+import PageLayout from "components/PageLayout";
 import BlogHeader from "components/BlogHeader";
 import BlogContent from "components/BlogContent";
 

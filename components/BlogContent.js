@@ -1,7 +1,8 @@
 import BlockContent from "@sanity/block-content-to-react";
-import HighlightCode from "components/HighlightCode";
 import { Image } from "react-bootstrap";
 import { urlFor } from "lib/api";
+
+import HighlightCode from "components/HighlightCode";
 
 const serializers = {
   types: {
