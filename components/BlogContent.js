@@ -6,6 +6,15 @@ import HighlightCode from "components/HighlightCode";
 
 const serializers = {
   types: {
+    command: ({ node: { language, code } }) => {
+      render: return (
+        <div className="container-code">
+          <HighlightCode language={language}>
+            <div>{code}</div>
+          </HighlightCode>
+        </div>
+      );
+    },
     code: ({ node: { language, code, filename } }) => {
       render: return (
         <div className="container-code">

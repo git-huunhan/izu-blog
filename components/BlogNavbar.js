@@ -1,9 +1,16 @@
 import { Navbar, Nav } from "react-bootstrap";
 import Link from "next/link";
 
-const BlogNavbar = () => {
+import ThemeToggle from "components/ThemeToggle";
+
+const BlogNavbar = ({ theme, toggleTheme }) => {
   return (
-    <Navbar className="iz-navbar iz-nav-base" bg="transparent" expand="lg">
+    <Navbar
+      variant={theme}
+      className="iz-navbar iz-nav-base"
+      bg="transparent"
+      expand="lg"
+    >
       <Navbar.Brand className="iz-navbar-brand">
         <Link href="/">Izu blog</Link>
       </Navbar.Brand>
@@ -22,6 +29,7 @@ const BlogNavbar = () => {
               </a>
             )}
           />
+          <ThemeToggle onChange={toggleTheme} />
         </Nav>
       </Navbar.Collapse>
     </Navbar>

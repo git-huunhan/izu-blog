@@ -7,9 +7,8 @@ const FilteringMenu = ({ onChange, filter }) => {
   return (
     <div className="filtering-menu mb-2">
       <FontAwesomeIcon
-        color="#000"
         fixedWidth
-        className="clickable"
+        className="clickable color-filter"
         size="lg"
         icon={LIST_VIEW_ICONS[filter.view.list]}
         onClick={() => {
@@ -20,7 +19,7 @@ const FilteringMenu = ({ onChange, filter }) => {
       <FontAwesomeIcon
         color="#000"
         fixedWidth
-        className="clickable"
+        className="clickable color-filter"
         size="lg"
         icon={DATE_FILTERING_ICONS[filter.date.asc]}
         onClick={() => onChange("date", { asc: +!filter.date.asc })}
