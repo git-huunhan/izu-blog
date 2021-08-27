@@ -1,18 +1,18 @@
+import { useEffect, useState } from "react";
 import Toggle from "react-toggle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const ThemeToggle = ({ onChange }) => {
+const ThemeToggle = ({ toggle, onChange }) => {
   return (
-    <label>
-      <Toggle
-        className="day-night-toggle"
-        icons={{
-          checked: <FontAwesomeIcon icon="sun" color="#fff" />,
-          unchecked: <FontAwesomeIcon icon="moon" color="#fff" />,
-        }}
-        onChange={onChange}
-      />
-    </label>
+    <Toggle
+      checked={toggle}
+      className="day-night-toggle"
+      icons={{
+        checked: <FontAwesomeIcon icon="moon" className="toggle-icon" />,
+        unchecked: <FontAwesomeIcon icon="sun" className="toggle-icon" />,
+      }}
+      onChange={onChange}
+    />
   );
 };
 

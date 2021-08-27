@@ -6,12 +6,12 @@ import { ThemeContext } from "context/ThemeContext";
 import { useContext } from "react";
 
 export default function PageLayout({ children, className }) {
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { theme,stToggle, toggleTheme } = useContext(ThemeContext);
 
   return (
     <div className={theme.type}>
       <Container>
-        <BlogNavbar theme={theme} toggleTheme={toggleTheme} />
+        <BlogNavbar theme={theme} toggle={stToggle} toggleTheme={toggleTheme} />
 
         <div className={`page-wrapper ${className}`}>{children}</div>
 

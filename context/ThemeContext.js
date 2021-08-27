@@ -5,13 +5,13 @@ export const themes = {
     type: "dark",
     foreground: "#ffffff",
     fontColor: "#ffffff",
-    background: "#000000",
+    background: "#121212",
   },
   light: {
     type: "light",
     fontColor: "#000000",
     foreground: "#000000",
-    background: "#ffffff",
+    background: "#F1EDF8",
   },
 };
 
