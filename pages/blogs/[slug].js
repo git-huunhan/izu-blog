@@ -2,6 +2,7 @@ import { Row, Col } from "react-bootstrap";
 import { getAllBlogs, getBlogBySlug, urlFor } from "lib/api";
 import ErrorPage from "next/error";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 import PageLayout from "components/PageLayout";
 import BlogHeader from "components/BlogHeader";
@@ -20,21 +21,28 @@ const BlogDetail = ({ blog }) => {
   }
 
   return (
-    <PageLayout className="blog-detail-page">
-      <Row>
-        <Col md={{ span: 10, offset: 1 }}>
-          <BlogHeader
-            title={blog.title}
-            subtitle={blog.subtitle}
-            coverImage={urlFor(blog.coverImage).height(400).url()}
-            author={blog.author}
-            date={blog.date}
-          />
-          <hr />
-          <BlogContent content={blog.content} />
-        </Col>
-      </Row>
-    </PageLayout>
+    <>
+      <Head>
+        <link rel="shortcut icon" href="/static/favicon.ico" />
+        <title>{blog.title} | Izu Blog</title>
+        <meta property="og:title" content="Izu Blog" key="title" />
+      </Head>
+      <PageLayout className="blog-detail-page">
+        <Row>
+          <Col md={{ span: 10, offset: 1 }}>
+            <BlogHeader
+              title={blog.title}
+              subtitle={blog.subtitle}
+              coverImage={urlFor(blog.coverImage).height(400).url()}
+              author={blog.author}
+              date={blog.date}
+            />
+            <hr />
+            <BlogContent content={blog.content} />
+          </Col>
+        </Row>
+      </PageLayout>
+    </>
   );
 };
 
@@ -47,7 +55,7 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
   const blogs = await getAllBlogs();
-  const paths = blogs?.map(b => ({params: {slug: b.slug}}));
+  const paths = blogs?.map((b) => ({ params: { slug: b.slug } }));
   return {
     paths,
     fallback: true,

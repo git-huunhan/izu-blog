@@ -36,6 +36,7 @@ const serializers = {
         </div>
       );
     },
+    
   },
 };
 

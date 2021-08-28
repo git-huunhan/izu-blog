@@ -1,4 +1,5 @@
 import { Image, OverlayTrigger, Popover } from "react-bootstrap";
+import Link from "next/link";
 
 import GetTimeAgo from "components/GetTimeAgo";
 import GetFullTime from "components/GetFullTime";
@@ -12,7 +13,16 @@ export default function BlogHeader({
 }) {
   return (
     <div className="blog-detail-header">
-      <div className="lead mb-0">
+      <div className="lead mb-4">
+        <div className="mb-4 d-flex">
+          <div className="breadcrumbs-item">
+            <Link href="/">Home</Link>
+          </div>
+          <div className="ms-2 me-2">
+            |
+          </div>
+          <div>{title}</div>
+        </div>
         <Image
           src={author.avatar}
           className="rounded-circle me-3"

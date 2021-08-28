@@ -6,7 +6,7 @@ import { ThemeContext } from "context/ThemeContext";
 import { useContext } from "react";
 
 export default function PageLayout({ children, className }) {
-  const { theme,stToggle, toggleTheme } = useContext(ThemeContext);
+  const { theme, stToggle, toggleTheme } = useContext(ThemeContext);
 
   return (
     <div className={theme.type}>

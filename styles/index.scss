@@ -434,6 +434,11 @@ body {
   border-right: 1px solid #636363;
 }
 
+.breadcrumbs-item a{
+  text-decoration: none;
+  color: #bd83f8;
+}
+
 /* DARK THEME*/
 
 .dark {
@@ -605,6 +610,8 @@ body {
     border-radius: 6px;
     color: #bd83f8;
   }
+
+
 
   /*!
   Theme: GitHub Dark

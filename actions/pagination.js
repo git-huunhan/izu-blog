@@ -11,7 +11,7 @@ export const useGetBlogsPages = ({ filter }) => {
       return null;
     }
 
-    return `/api/blogs?offset=${index * 3}&date=${
+    return `/api/blogs?offset=${index * 6}&date=${
       filter.date.asc ? "asc" : "desc"
     }`;
   }, getBlogs);
