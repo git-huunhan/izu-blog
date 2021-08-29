@@ -91,12 +91,13 @@ export default function Home({ blogs, preview }) {
   );
 }
 
-export async function getStaticProps({preview = false}) {
+export async function getStaticProps({ preview = false }) {
   const blogs = await getPaginatedBlogs({ offset: 0, date: "desc" });
   return {
     props: {
       blogs,
       preview,
     },
+    unstable_revalidate: 1,
   };
 }
