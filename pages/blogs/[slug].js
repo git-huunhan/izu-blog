@@ -9,7 +9,7 @@ import BlogHeader from "components/BlogHeader";
 import BlogContent from "components/BlogContent";
 import PreviewAlert from "components/PreviewAlert";
 
-const BlogDetail = ({ blog: initialBlog, preview }) => {
+const BlogDetail = ({ blog, preview }) => {
   const router = useRouter();
   // const [blog, setBlog] = useState(initialBlog);
 
