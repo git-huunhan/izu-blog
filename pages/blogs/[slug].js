@@ -9,21 +9,21 @@ import BlogHeader from "components/BlogHeader";
 import BlogContent from "components/BlogContent";
 import PreviewAlert from "components/PreviewAlert";
 
-const BlogDetail = ({ blog, preview }) => {
+const BlogDetail = ({ blog: initialBlog, preview }) => {
   const router = useRouter();
-  // const [blog, setBlog] = useState(initialBlog);
+  const [blog, setBlog] = useState(initialBlog);
 
-  // useEffect(() => {
-  //   let sub;
+  useEffect(() => {
+    let sub;
 
-  //   if (preview) {
-  //     sub = onBlogUpdate(blog.slug).subscribe((update) => {
-  //       setBlog(update.result);
-  //     });
-  //   }
+    if (preview) {
+      sub = onBlogUpdate(blog.slug).subscribe((update) => {
+        setBlog(update.result);
+      });
+    }
 
-  //   return () => sub && sub.unsubscribe();
-  // }, []);
+    return () => sub && sub.unsubscribe();
+  }, []);
 
   if (!router.isFallback && !blog?.slug) {
     return <ErrorPage statusCode="404" />;
