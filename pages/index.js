@@ -10,6 +10,7 @@ import CardItem from "components/CardItem";
 import GetTimeAgo from "components/GetTimeAgo";
 import GetFullTime from "components/GetFullTime";
 import FilteringMenu from "components/FilteringMenu";
+import PreviewAlert from "components/PreviewAlert";
 
 export const BlogList = ({ data = [], filter }) => {
   return data.map((page) =>
@@ -49,7 +50,7 @@ export const BlogList = ({ data = [], filter }) => {
   );
 };
 
-export default function Home({ blogs }) {
+export default function Home({ blogs, preview }) {
   const [filter, setFilter] = useState({
     view: { list: 0 },
     date: { asc: 0 },
@@ -59,6 +60,7 @@ export default function Home({ blogs }) {
 
   return (
     <PageLayout>
+      {preview && <PreviewAlert />}
       <div className="blog-detail-page">
         <div className="d-flex justify-content-end">
           <FilteringMenu
@@ -89,11 +91,12 @@ export default function Home({ blogs }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getStaticProps({preview = false}) {
   const blogs = await getPaginatedBlogs({ offset: 0, date: "desc" });
   return {
     props: {
       blogs,
+      preview,
     },
   };
 }

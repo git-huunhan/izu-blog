@@ -23,6 +23,7 @@ const CardItem = ({
                 height={200}
                 draggable="false"
                 className="card-img clickable"
+                xs={4}
                 alt="Card image cap"
               />
             </Link>

@@ -2,6 +2,7 @@
 
 $popover-date-color: #5e5e5e;
 
+/*#region LIGHT THEME */
 html,
 body {
   height: 100%;
@@ -10,7 +11,7 @@ body {
   font-size: 14px;
   font-weight: 300;
   background-color: #ffffff;
-  padding-top: 40px;
+  padding-top: 20px;
 }
 
 body {
@@ -152,6 +153,14 @@ body {
 
 .card {
   margin-bottom: 60px;
+}
+
+.navbar-nav {
+  margin-top: 2px;
+}
+
+.react-toggle {
+  margin-top: 2px;
 }
 
 // HEADER STARTS
@@ -434,12 +443,15 @@ body {
   border-right: 1px solid #636363;
 }
 
-.breadcrumbs-item a{
+.breadcrumbs-item a {
   text-decoration: none;
   color: #bd83f8;
 }
 
-/* DARK THEME*/
+
+/*#endregion LIGHT THEME*/
+
+/*#region DARK THEME*/
 
 .dark {
   .card.iz-card {
@@ -611,18 +623,7 @@ body {
     color: #bd83f8;
   }
 
-
-
-  /*!
-  Theme: GitHub Dark
-  Description: Dark theme as seen on github.com
-  Author: github.com
-  Maintainer: @Hirse
-  Updated: 2021-05-15
-  Outdated base version: https://github.com/primer/github-syntax-dark
-  Current colors taken from GitHub's CSS
-*/
-
+  /*#region Theme Github Dark*/
   .hljs {
     color: #c9d1d9;
     background: #1e1e1e;
@@ -737,4 +738,6 @@ body {
   .hljs-tag {
     /* purposely ignored */
   }
+  /*#endregion Theme Github Dark*/
 }
+/*#endregion DARK THEME*/

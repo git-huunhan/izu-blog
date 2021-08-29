@@ -11,6 +11,7 @@ const BlogNavbar = ({ theme, toggle, toggleTheme }) => {
       className="iz-navbar iz-nav-base"
       expand="lg"
     >
+      
       <div className="container">
         <Navbar.Brand className="iz-navbar-brand">
           <div className="d-flex">
@@ -26,8 +27,7 @@ const BlogNavbar = ({ theme, toggle, toggleTheme }) => {
             </div>
           </div>
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+
           <Nav className="ms-auto">
             <Nav.Link
               as={() => (
@@ -43,7 +43,7 @@ const BlogNavbar = ({ theme, toggle, toggleTheme }) => {
             />
           </Nav>
           <ThemeToggle toggle={toggle} onChange={toggleTheme} />
-        </Navbar.Collapse>
+     
       </div>
     </Navbar>
   );
