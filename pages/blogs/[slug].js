@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Row, Col } from "react-bootstrap";
 import { getAllBlogs, getBlogBySlug, urlFor, onBlogUpdate } from "lib/api";
 import ErrorPage from "next/error";
@@ -12,19 +11,19 @@ import PreviewAlert from "components/PreviewAlert";
 
 const BlogDetail = ({ blog: initialBlog, preview }) => {
   const router = useRouter();
-  const [blog, setBlog] = useState(initialBlog);
+  // const [blog, setBlog] = useState(initialBlog);
 
-  useEffect(() => {
-    let sub;
+  // useEffect(() => {
+  //   let sub;
 
-    if (preview) {
-      sub = onBlogUpdate(blog.slug).subscribe((update) => {
-        setBlog(update.result);
-      });
-    }
+  //   if (preview) {
+  //     sub = onBlogUpdate(blog.slug).subscribe((update) => {
+  //       setBlog(update.result);
+  //     });
+  //   }
 
-    return () => sub && sub.unsubscribe();
-  }, []);
+  //   return () => sub && sub.unsubscribe();
+  // }, []);
 
   if (!router.isFallback && !blog?.slug) {
     return <ErrorPage statusCode="404" />;
