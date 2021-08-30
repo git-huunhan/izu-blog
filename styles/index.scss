@@ -1,10 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700;900&display=swap");
 
 $popover-date-color: #5e5e5e;
-$light-core-color: #fc9601;
-$dark-core-color: #bd83f8;
 
+$light-core-color: #fc9601;
 $light-blockcode-bg: #f1edf8;
+$light-border: 1px solid #d0d7de;
+
+$dark-core-color: #bd83f8;
+$dark-border: 1px solid #30363d;
 
 /*#region LIGHT THEME */
 html,
@@ -50,7 +53,7 @@ body {
     position: relative;
     z-index: 2;
     padding: 15px;
-    border: 1px solid #d0d7de;
+    border: $light-border;
   }
 
   .card-header {
@@ -426,13 +429,13 @@ body {
 }
 
 .filtering-menu {
-  background-color: #ffffff;
   border-radius: 6px;
-  color: #ff9100;
+  border: $light-border;
+  color: $light-core-color;
 }
 
 .filter-button {
-  border-right: 1px solid #636363;
+  border-right: $light-border;
 }
 
 .breadcrumbs-item a {
@@ -459,7 +462,7 @@ body {
       position: relative;
       z-index: 2;
       padding: 15px;
-      border: 1px solid #30363d;
+      border: $dark-border;
     }
 
     .card-header {
@@ -602,9 +605,13 @@ body {
   }
 
   .filtering-menu {
-    background-color: #242424;
     border-radius: 6px;
+    border: $dark-border;
     color: $dark-core-color;
+  }
+
+  .filter-button {
+    border-right: $dark-border;
   }
 
   .breadcrumbs-item a {
