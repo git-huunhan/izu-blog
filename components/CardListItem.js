@@ -47,7 +47,7 @@ const CardListItem = ({
                   </Link>
                 )}
               </Card.Title>
-              <Card.Text>
+              <Card.Text className="card-subtitle lh-sm mt-3">
                 <LinesEllipsis text={subtitle} maxLine="3" />
               </Card.Text>
             </Card.Body>
