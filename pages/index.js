@@ -31,7 +31,7 @@ export const BlogList = ({ data = [], filter }) => {
           />
         </Col>
       ) : (
-        <Col key={blog.slug} lg="4" md="6">
+        <Col key={blog.slug} xl="3" lg="4" md="6">
           <CardItem
             author={blog.author}
             title={blog.title}

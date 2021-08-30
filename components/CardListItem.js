@@ -23,7 +23,7 @@ const CardListItem = ({
     <Card className={`iz-card iz-card-list`}>
       <div className="card-body-wrapper">
         <Row>
-          <Col md="5">
+          <Col xs="5" md="5">
             <div className="view overlay">
               {link && (
                 <Link {...link}>
@@ -38,7 +38,7 @@ const CardListItem = ({
               )}
             </div>
           </Col>
-          <Col md="7" className="d-flex justify-content-end flex-column">
+          <Col xs="7" md="7" className="d-flex justify-content-end flex-column">
             <Card.Body>
               <Card.Title className="card-main-title">
                 {link && (

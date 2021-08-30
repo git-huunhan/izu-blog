@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700;900&display=swap");
 
 $popover-date-color: #5e5e5e;
+$light-core-color: #fc9601;
+$dark-core-color: #bd83f8;
+
+$light-blockcode-bg: #f1edf8;
 
 /*#region LIGHT THEME */
 html,
@@ -40,19 +44,13 @@ body {
   background-color: #ffffff00;
   margin-bottom: 20px;
   .card-body-wrapper {
-    background-color: #fff;
     border-radius: 20px;
 
     min-height: 280px;
     position: relative;
     z-index: 2;
     padding: 15px;
-    transition: all 0.3s;
-
-    &:hover {
-      box-shadow: 2px 5px 25px rgba(0, 0, 0, 0.116);
-      transform: scale(1.04);
-    }
+    border: 1px solid #d0d7de;
   }
 
   .card-header {
@@ -71,6 +69,7 @@ body {
     padding: 15px 0px 0px;
 
     .card-title {
+      color: $light-core-color;
       font-weight: bold;
       margin-bottom: 3px;
     }
@@ -84,15 +83,11 @@ body {
   .card-main-title {
     font-size: 22px;
     height: 26px;
-    a {
-      color: #000;
-      text-decoration: none;
-      transition: all 0.3s;
-    }
 
     .LinesEllipsis:hover {
       cursor: pointer;
-      color: #7a99ff;
+      color: $light-core-color;
+      text-decoration: underline;
       transition: all 0.3s;
     }
   }
@@ -123,10 +118,6 @@ body {
   &.iz-card-list {
     .card-body-wrapper {
       min-height: 180px;
-      // position: relative;
-      // z-index: 2;
-      // padding: 20px;
-      // padding-bottom: 40px;
     }
 
     .card-header {
@@ -166,7 +157,7 @@ body {
 // HEADER STARTS
 .iz-navbar.iz-nav-base {
   width: 100%;
-  background-color: #f1edf8;
+  background-color: #ffffff;
 
   .iz-navbar {
     &-brand {
@@ -252,6 +243,7 @@ body {
 
 .hljs {
   padding: 20px 20px 10px;
+  background-color: $light-blockcode-bg;
   border-radius: 10px;
 }
 
@@ -271,7 +263,7 @@ body {
 }
 
 .container-code {
-  background-color: #fff;
+  background-color: $light-blockcode-bg;
   border-radius: 10px;
   width: 100%;
   display: inline-block;
@@ -430,7 +422,7 @@ body {
 }
 
 .toggle-icon {
-  color: #ff9100;
+  color: $light-core-color;
 }
 
 .filtering-menu {
@@ -445,7 +437,7 @@ body {
 
 .breadcrumbs-item a {
   text-decoration: none;
-  color: #bd83f8;
+  color: $light-core-color;
 }
 
 /*#endregion LIGHT THEME*/
@@ -461,19 +453,13 @@ body {
     background-color: #2b2a2a00;
     margin-bottom: 20px;
     .card-body-wrapper {
-      background-color: #1e1e1e;
       border-radius: 20px;
 
       min-height: 280px;
       position: relative;
       z-index: 2;
       padding: 15px;
-      transition: all 0.3s;
-
-      &:hover {
-        box-shadow: 2px 5px 25px rgba(0, 0, 0, 0.116);
-        transform: scale(1.04);
-      }
+      border: 1px solid #30363d;
     }
 
     .card-header {
@@ -492,6 +478,7 @@ body {
       padding: 15px 0px 0px;
 
       .card-title {
+        color: $dark-core-color;
         font-weight: bold;
         margin-bottom: 3px;
       }
@@ -505,15 +492,11 @@ body {
     .card-main-title {
       font-size: 22px;
       height: 26px;
-      a {
-        color: rgb(255, 255, 255);
-        text-decoration: none;
-        transition: all 0.3s;
-      }
 
       .LinesEllipsis:hover {
         cursor: pointer;
-        color: #7a99ff;
+        color: $dark-core-color;
+        text-decoration: underline;
         transition: all 0.3s;
       }
     }
@@ -615,13 +598,18 @@ body {
   }
 
   .toggle-icon {
-    color: #bd83f8;
+    color: $dark-core-color;
   }
 
   .filtering-menu {
     background-color: #242424;
     border-radius: 6px;
-    color: #bd83f8;
+    color: $dark-core-color;
+  }
+
+  .breadcrumbs-item a {
+    text-decoration: none;
+    color: $dark-core-color;
   }
 }
 /*#endregion DARK THEME*/

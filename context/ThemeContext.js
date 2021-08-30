@@ -11,7 +11,7 @@ export const themes = {
     type: "light",
     fontColor: "#000000",
     foreground: "#000000",
-    background: "#F1EDF8",
+    background: "#ffffff",
   },
 };
 
