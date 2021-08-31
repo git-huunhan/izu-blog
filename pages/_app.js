@@ -8,6 +8,7 @@ import {
   faSortNumericDown,
   faSortNumericUp,
   faThLarge,
+  faHeart
 } from "@fortawesome/free-solid-svg-icons";
 
 config.autoAddCss = false;
@@ -17,7 +18,8 @@ library.add(
   faThList,
   faThLarge,
   faSortNumericDown,
-  faSortNumericUp
+  faSortNumericUp,
+  faHeart
 );
 
 import "@fortawesome/fontawesome-svg-core/styles.css";

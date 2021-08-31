@@ -13,42 +13,48 @@ export default function BlogHeader({
 }) {
   return (
     <div className="blog-detail-header">
-      <div className="lead mb-4">
+      <div className="lead">
         <div className="mb-4 d-flex">
           <div className="breadcrumbs-item">
             <Link href="/">Home</Link>
           </div>
-          <div className="ms-2 me-2">
-            |
-          </div>
+          <div className="ms-2 me-2">|</div>
           <div>{title}</div>
         </div>
-        <Image
-          src={author.avatar}
-          className="rounded-circle me-3"
-          height="50px"
-          width="50px"
-          alt="avatar"
-        />
-        {author.name}
-        {", "}
-        <OverlayTrigger
-          placement="bottom"
-          overlay={
-            <Popover className="popover-date">
-              <GetFullTime date={date} />
-            </Popover>
-          }
-        >
-          <span>
-            <GetTimeAgo date={date} />
-          </span>
-        </OverlayTrigger>
+
+        <h1 className="font-weight-bold blog-detail-header-title mb-0">
+          {title}
+        </h1>
+
+        <div className="d-flex">
+          <Image
+            src={author.avatar}
+            className="rounded-circle me-3"
+            height="50px"
+            width="50px"
+            alt="avatar"
+          />
+          <div className="d-flex flex-column justify-content-center">
+            <div className="author-name-blog-content">{author.name}</div>
+            <div>
+              <OverlayTrigger
+                placement="bottom"
+                overlay={
+                  <Popover className="popover-date">
+                    <GetFullTime date={date} />
+                  </Popover>
+                }
+              >
+                <span>
+                  <GetTimeAgo date={date} />
+                </span>
+              </OverlayTrigger>
+            </div>
+          </div>
+        </div>
       </div>
-      <h1 className="font-weight-bold blog-detail-header-title mb-0">
-        {title}
-      </h1>
-      <h2 className="blog-detail-header-subtitle mb-3">{subtitle}</h2>
+
+      <h2 className="blog-detail-header-subtitle">{subtitle}</h2>
 
       <Image className="img-fluid" src={coverImage} alt="" />
     </div>

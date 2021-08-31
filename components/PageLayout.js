@@ -1,9 +1,10 @@
 import { Container } from "react-bootstrap";
-
-import BlogNavbar from "./BlogNavbar";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ThemeContext } from "context/ThemeContext";
 import { useContext } from "react";
+
+import BlogNavbar from "./BlogNavbar";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 export default function PageLayout({ children, className }) {
   const { theme, stToggle, toggleTheme } = useContext(ThemeContext);
@@ -18,7 +19,10 @@ export default function PageLayout({ children, className }) {
         <footer className="page-footer">
           <div>
             <a href="#" style={{ textDecoration: "none" }}>
-              Izu Blog with ❤️, 2021
+              Izu Blog with {" "}
+              <FontAwesomeIcon fixedWidth size="sm" icon={faHeart} color="#ff5079"/>
+              {" - "}
+              Copyright © 2021
             </a>
           </div>
         </footer>
