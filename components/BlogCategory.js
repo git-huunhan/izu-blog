@@ -7,8 +7,8 @@ import CardListItem from "components/CardListItem";
 
 const BlogCategory = ({ data = [], categories, filter }) => {
   return (
-    <Row className="row-category">
-      <Col md="10">
+    <Row className="fix-padding">
+      <Col md="10" className="fix-padding">
         {categories.map((c) => (
           <div key={c._id}>
             <div className="d-flex title-category">
@@ -63,7 +63,7 @@ const BlogCategory = ({ data = [], categories, filter }) => {
           </div>
         ))}
       </Col>
-      <Col md="2" className="row-category">
+      <Col md="2" className="fix-padding">
         <div className="menu-category">
           {categories.map((c) => (
             <div key={c._id}>
