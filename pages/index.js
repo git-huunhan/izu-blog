@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Row, Col, Button } from "react-bootstrap";
 
 import { useGetBlogsPages } from "actions/pagination";
-import { getPaginatedBlogs } from "lib/api";
+import { getPaginatedBlogs, categoriesQuery } from "lib/api";
 
 import PageLayout from "components/PageLayout";
 import CardListItem from "components/CardListItem";
@@ -11,6 +11,7 @@ import GetTimeAgo from "components/GetTimeAgo";
 import GetFullTime from "components/GetFullTime";
 import FilteringMenu from "components/FilteringMenu";
 import PreviewAlert from "components/PreviewAlert";
+import BlogCategory from "components/BlogCategory";
 
 export const BlogList = ({ data = [], filter }) => {
   return data.map((page) =>
@@ -28,6 +29,7 @@ export const BlogList = ({ data = [], filter }) => {
               href: "/blogs/[slug]",
               as: `/blogs/${blog.slug}`,
             }}
+            categories={blog.categories.title}
           />
         </Col>
       ) : (
@@ -43,6 +45,7 @@ export const BlogList = ({ data = [], filter }) => {
               href: "/blogs/[slug]",
               as: `/blogs/${blog.slug}`,
             }}
+            categories={blog.categories.title}
           />
         </Col>
       )
@@ -50,10 +53,11 @@ export const BlogList = ({ data = [], filter }) => {
   );
 };
 
-export default function Home({ blogs, preview }) {
+export default function Home({ blogs, categories, preview }) {
   const [filter, setFilter] = useState({
     view: { list: 0 },
     date: { asc: 0 },
+    category: { item: 0 },
   });
 
   const { data, size, setSize, hitEnd } = useGetBlogsPages({ filter });
@@ -71,21 +75,28 @@ export default function Home({ blogs, preview }) {
           />
         </div>
 
-        <Row className="mb-5">
-          <BlogList data={data || [blogs]} filter={filter} />
-        </Row>
-
-        <div style={{ textAlign: "center" }}>
-          <Button
-            onClick={() => setSize(size + 1)}
-            disabled={hitEnd}
-            size="lg"
-            variant="outline-secondary"
-          >
-            {/* {isLoadingMore ? '...' : isReachingEnd ? 'No more blogs' : 'More Blogs'} */}
-            Load More
-          </Button>
-        </div>
+        {filter.category.item ? (
+          <Row className="mb-5">
+            <BlogCategory data={data || [blogs]} categories={categories} filter={filter}/>
+          </Row>
+        ) : (
+          <>
+            <Row className="mb-5">
+              <BlogList data={data || [blogs]} filter={filter} />
+            </Row>
+            <div style={{ textAlign: "center" }}>
+              <Button
+                onClick={() => setSize(size + 1)}
+                disabled={hitEnd}
+                size="lg"
+                variant="outline-secondary"
+              >
+                {/* {isLoadingMore ? '...' : isReachingEnd ? 'No more blogs' : 'More Blogs'} */}
+                Load More
+              </Button>
+            </div>
+          </>
+        )}
       </div>
     </PageLayout>
   );
@@ -93,9 +104,11 @@ export default function Home({ blogs, preview }) {
 
 export async function getStaticProps({ preview = false }) {
   const blogs = await getPaginatedBlogs({ offset: 0, date: "desc" });
+  const categories = await categoriesQuery();
   return {
     props: {
       blogs,
+      categories,
       preview,
     },
     revalidate: 1,

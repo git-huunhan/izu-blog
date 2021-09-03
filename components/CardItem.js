@@ -1,7 +1,10 @@
+import { useEffect, useState } from "react";
 import { Image, Card, Popover, OverlayTrigger } from "react-bootstrap";
 import Link from "next/link";
 import { urlFor } from "lib/api";
 import LinesEllipsis from "react-lines-ellipsis";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTag } from "@fortawesome/free-solid-svg-icons";
 
 const CardItem = ({
   title,
@@ -11,7 +14,30 @@ const CardItem = ({
   image,
   author,
   link,
+  categories,
 }) => {
+  const [color, setColor] = useState();
+
+  useEffect(() => {
+    changeColor();
+  }, []);
+
+  const changeColor = () => {
+    switch (categories) {
+      case "JavaScript":
+        setColor("#f1e05a");
+        break;
+      case "React":
+        setColor("#51d2f1");
+        break;
+      case "Development":
+        setColor("#e5858d");
+        break;
+      default:
+        setColor("#fff");
+    }
+  };
+
   return (
     <Card className={`iz-card`}>
       <div className="card-body-wrapper">
@@ -38,6 +64,16 @@ const CardItem = ({
               </Link>
             )}
           </Card.Title>
+
+          <div
+            className="category-item d-flex align-items-center"
+            style={{ color: `${color}` }}
+          >
+            <div>
+              <FontAwesomeIcon fixedWidth size="xs" icon={faTag} />
+            </div>
+            <div className="ms-2">{categories}</div>
+          </div>
 
           <Card.Text className="card-subtitle lh-sm mt-3">
             <LinesEllipsis text={subtitle} maxLine="3" />
