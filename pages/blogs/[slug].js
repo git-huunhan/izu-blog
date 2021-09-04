@@ -51,6 +51,7 @@ const BlogDetail = ({ blog: initialBlog, preview }) => {
               coverImage={urlFor(blog.coverImage).height(400).url()}
               author={blog.author}
               date={blog.date}
+              categories={blog.categories.title}
             />
             <hr />
             <BlogContent content={blog.content} />

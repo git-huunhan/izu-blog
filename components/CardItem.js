@@ -76,7 +76,7 @@ const CardItem = ({
           </div>
 
           <Card.Text className="card-subtitle lh-sm mt-3">
-            <LinesEllipsis text={subtitle} maxLine="3" />
+            <LinesEllipsis text={subtitle} maxLine="3" basedOn="letters" trimRight/>
           </Card.Text>
         </Card.Body>
 

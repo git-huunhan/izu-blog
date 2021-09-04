@@ -55,7 +55,7 @@ const CardListItem = ({
                 <Link {...link}>
                   <Card.Img
                     src={urlFor(image).height(300).url()}
-                    height={200}
+                    height={250}
                     draggable="false"
                     className="card-img clickable"
                     alt="Card image cap"
